@@ -1,6 +1,6 @@
-# PricePulse
+# price_pulse
 
-> PricePulse: Giving you the heartbeat of pricing across sites 💰🤩💰😱.
+> price_pulse: Giving you the heartbeat of pricing across sites 💰🤩💰😱.
 
 PricePulse is a solution designed to scrape price data from e-commerce sites, consolidate the data, and provide a centralized view of product prices. Built with Docker, Scrapy, MySQL, and Kubernetes.
 
