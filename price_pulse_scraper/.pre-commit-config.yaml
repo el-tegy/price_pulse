@@ -1,3 +1,5 @@
+exclude: ^price_pulse_scraper/(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
+
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v3.4.0
@@ -18,7 +20,7 @@ repos:
     exclude: ^(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
 
 -   repo: https://github.com/pre-commit/mirrors-pylint
-    rev: 'v2.6.0'  # Use the desired version
+    rev: 'v2.6.0'
     hooks:
     - id: pylint
       exclude: ^(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
