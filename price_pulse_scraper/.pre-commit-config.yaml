@@ -23,3 +23,9 @@ repos:
     language: system
     types: [python]
     args: ['--rcfile=.pylintrc', '--errors-only']
+
+-   repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v6.8.0
+    hooks:
+    -   id: eslint
+        exclude: ^(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
