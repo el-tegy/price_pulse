@@ -9,16 +9,16 @@ repos:
   rev: 21.6b0
   hooks:
   - id: black
-    exclude: ^price_pulse_scraper/(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
+    exclude: ^(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
 
 - repo: https://github.com/pre-commit/mirrors-isort
   rev: v5.7.0
   hooks:
   - id: isort
-    exclude: ^price_pulse_scraper/(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
+    exclude: ^(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
 
 -   repo: https://github.com/pre-commit/mirrors-pylint
     rev: 'v2.6.0'  # Use the desired version
     hooks:
     - id: pylint
-      exclude: ^price_pulse_scraper/(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
+      exclude: ^(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
