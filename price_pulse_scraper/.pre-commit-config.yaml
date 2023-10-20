@@ -17,12 +17,8 @@ repos:
   - id: isort
     exclude: ^price_pulse_scraper/(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
 
-- repo: local
-  hooks:
-  - id: pylint
-    name: pylint
-    entry: pylint
-    language: system
-    types: [python]
-    args: ['--rcfile=.pylintrc', '--errors-only']
-    exclude: ^price_pulse_scraper/(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
+-   repo: https://github.com/pre-commit/mirrors-pylint
+    rev: 'v2.6.0'  # Use the desired version
+    hooks:
+    - id: pylint
+      exclude: ^price_pulse_scraper/(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
