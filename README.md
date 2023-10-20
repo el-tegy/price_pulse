@@ -2,7 +2,7 @@
 
 > price_pulse: Giving you the heartbeat of pricing across sites 💰🤩💰😱.
 
-PricePulse is a solution designed to scrape price data from e-commerce sites, consolidate the data, and provide a centralized view of product prices. Built with Docker, Scrapy, MySQL, and Kubernetes.
+PricePulse is a solution designed to scrape price data from e-commerce sites, consolidate the data, and provide a centralized view of product prices. Built with Docker, Scrapy, MySQL, and Docker Compose.
 
 ## ✨ Features
 
@@ -10,7 +10,7 @@ PricePulse is a solution designed to scrape price data from e-commerce sites, co
 - **Centralized Database**: Use a MySQL database to store and manage price data.
 - **Easy Management**: PhpMyAdmin integration for better database management.
 - **Containerized Solution**: Everything runs in Docker for isolated and reproducible runs.
-- **Kubernetes Orchestration**: Efficiently manage, scale, and maintain the service using Kubernetes.
+- **Docker Compose**: Efficiently define, manage, and run application containers.
 
 ## 🚀 Quick Start
 
@@ -22,22 +22,24 @@ PricePulse is a solution designed to scrape price data from e-commerce sites, co
    cd pricepulse
    ```
 
-3. **Build Docker Images**: 
+3. **Build and Run using Docker Compose**: 
    ```bash
-   docker-compose build
+   docker-compose up -d
    ```
 
-4. **Deploy to Kubernetes**:
+4. **Accessing the Application**:
+Open a browser and navigate to http://localhost:8080 to access phpMyAdmin.
+
+5. **Stopping the Services**: 
    ```bash
-   kubectl apply -f kubernetes/deployment.yaml
+   docker-compose down
    ```
 
 ## 🧱 Directory Structure
 
 - `/scrapers`: Contains Scrapy spiders and scripts.
-- `/database`: MySQL database schema and initialization scripts.
-- `/kubernetes`: Kubernetes deployment configurations.
-- `/docker`: Dockerfiles and related configurations.
+- `/db_init`: Contains initialization scripts for the MySQL database.
+- `/docker-compose.yml`: Configuration file for Docker Compose to orchestrate the services.
 
 ## ✒️ Development
 
@@ -47,9 +49,12 @@ Details about setting up the development environment, coding standards, etc.
 
 How to run unit tests and understand test coverage.
 
-## 🚚 Deployment
+## 🚚 Troubleshooting
 
-Steps for deploying to a staging or production environment.
+If you face any issues, please check the following:
+
+   - Ensure all services are up by using `docker-compose ps`.
+   - Check logs of a specific service: `docker-compose logs <service_name>` (e.g., `docker-compose logs mysql`).
 
 ## 🫱🏻‍🫲🏽 Contributing
 
