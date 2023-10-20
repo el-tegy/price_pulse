@@ -23,5 +23,5 @@ repos:
     rev: 'v3.0.0a5'
     hooks:
     - id: pylint
-      args: ['--disable=too-few-public-methods,no-self-use']
+      args: ['--disable=too-few-public-methods,no-self-use,import-error']
 
