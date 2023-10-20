@@ -1,12 +1,21 @@
+"""
+middlewares.py
+
+This module defines middlewares for the Scrapy spider.
+
+Middlewares are hooks that allow you to process or modify requests, responses, and items.
+They can be used for various tasks, such as handling redirects, setting request headers,
+or processing responses before they're passed to the spider.
+"""
+
 # Define here the models for your spider middleware
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
-
 # useful for handling different item types with a single interface
-from itemadapter import is_item, ItemAdapter
+from itemadapter import ItemAdapter, is_item
+from scrapy import signals
 
 
 class PricePulseScraperSpiderMiddleware:

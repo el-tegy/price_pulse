@@ -1,3 +1,12 @@
+"""
+items.py
+
+This module defines the item classes for the Scrapy project.
+
+Items are custom Python objects used to store the scraped data. They provide a
+structured way to define the data fields the spider will extract from the webpage.
+"""
+
 # Define here the models for your scraped items
 #
 # See documentation in:

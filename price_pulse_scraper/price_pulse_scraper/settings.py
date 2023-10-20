@@ -1,3 +1,13 @@
+"""
+settings.py
+
+This module contains all the settings for the Scrapy spider.
+
+Settings define how the spider behaves, including middlewares used, concurrent requests,
+user agent, and extensions enabled, among others. Adjust these settings to control the spider's
+behavior and interaction with the target websites.
+"""
+
 # Scrapy settings for price_pulse_scraper project
 #
 # For simplicity, this file contains only settings considered important or
@@ -18,6 +28,9 @@ NEWSPIDER_MODULE = "price_pulse_scraper.spiders"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
+
+# Export as CSV Feed
+FEED_FORMAT = "csv"
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -80,7 +93,8 @@ ROBOTSTXT_OBEY = True
 #AUTOTHROTTLE_DEBUG = False
 
 # Enable and configure HTTP caching (disabled by default)
-# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
+# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
+# httpcache-middleware-settings
 #HTTPCACHE_ENABLED = True
 #HTTPCACHE_EXPIRATION_SECS = 0
 #HTTPCACHE_DIR = "httpcache"
