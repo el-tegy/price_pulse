@@ -4,6 +4,8 @@
 
 PricePulse is a solution designed to scrape price data from e-commerce sites, consolidate the data, and provide a centralized view of product prices. Built with Docker, Scrapy, MySQL, and Docker Compose.
 
+Given the recent additions to the project, including `pylint`, the 'features' section of the README can be updated to reflect these improvements. Here's the updated section:
+
 ## ✨ Features
 
 - **Price Scraping**: Harness the power of Scrapy to fetch and process price data.
@@ -11,6 +13,9 @@ PricePulse is a solution designed to scrape price data from e-commerce sites, co
 - **Easy Management**: PhpMyAdmin integration for better database management.
 - **Containerized Solution**: Everything runs in Docker for isolated and reproducible runs.
 - **Docker Compose**: Efficiently define, manage, and run application containers.
+- **Code Quality Assurance**: Integrated `pylint` to ensure the code adheres to best practices and standards.
+- **Dependency Management**: Using `Poetry` for consistent and easy dependency handling.
+- **Pre-Commit Hooks**: Automatic code formatting and linting checks before commits to maintain a clean codebase.
 
 ## 🚀 Quick Start
 
@@ -21,16 +26,20 @@ PricePulse is a solution designed to scrape price data from e-commerce sites, co
    git clone https://gitlab.com/el-tegy/pricepulse.git
    cd pricepulse
    ```
+3. **Install dependencies with Poetry**:
+   ```bash
+   poetry install
+   ```
 
-3. **Build and Run using Docker Compose**: 
+4. **Build and Run using Docker Compose**:
    ```bash
    docker-compose up -d
    ```
 
-4. **Accessing the Application**:
+5. **Accessing the Application**:
 Open a browser and navigate to http://localhost:8080 to access phpMyAdmin.
 
-5. **Stopping the Services**: 
+6. **Stopping the Services**:
    ```bash
    docker-compose down
    ```
