@@ -1,5 +1,5 @@
 """
-shop_b_spider.py
+shop_b.py
 
 This module contains the spider definition for scraping data from Shop B.
 
@@ -8,7 +8,7 @@ like product name, price, description, and other relevant details, and stores
 them for further processing or analysis.
 
 Usage:
-    scrapy crawl shop_b_spider
+    scrapy crawl shop_b
 
 Attributes:
     name (str): Unique identifier for the spider.
@@ -21,11 +21,11 @@ Methods:
 import scrapy
 
 
-class ShopbSpider(scrapy.Spider):
+class ShopBSpider(scrapy.Spider):
     """
-    Spider to scrape product information from Shop A's website.
+    Spider to scrape product information from Shop B's website.
 
-    This spider navigates through Shop A's product listings, extracts details
+    This spider navigates through Shop B's product listings, extracts details
     like product name, price, and description, and stores them for further analysis.
     It also handles pagination and ensures that all relevant product pages are visited.
 
@@ -38,10 +38,10 @@ class ShopbSpider(scrapy.Spider):
         parse(self, response): Processes the response and extracts the required data.
     """
 
-    name = "shopB_spider"
+    name = "shop_b"
     allowed_domains = ["www.idealo.fr"]
     start_urls = ["https://www.idealo.fr/prix/202069623/apple-iphone-14-pro-max.html"]
-    custom_settings = {"FEED_URI": "../data/shopB.csv"}
+    custom_settings = {"FEED_URI": "./data/shopB.csv"}
 
     def parse(self, response):
         """
@@ -58,7 +58,7 @@ class ShopbSpider(scrapy.Spider):
         # Apple iPhone 14 Pro Max 128 Go noir sidéral
         prices_1 = response.css(".price > span:nth-child(2)::text").extract()
         # '1\u202f165,'
-        prices_2 = response.css(".price .Pricesup::text").extract()
+        prices_2 = response.css(".price .priceSup::text").extract()
         # '\xa050'
         full_price = []
         # transform links to absolute links in form of https://www.idealo.fr/prix/
@@ -66,11 +66,9 @@ class ShopbSpider(scrapy.Spider):
         # and prices_1 and prices_2 into  full_price like "1165,50" as float
         for i, link in enumerate(links):
             links[i] = "https://www.idealo.fr" + link
-            prices_1[i] = prices_1[i].replace("\u202f", "")
-            prices_2[i] = prices_2[i].replace("\xa0", "")
-            prices_2[i] = prices_2[i].replace(",", ".")
-            prices_1[i] = prices_1[i] + prices_2[i]
-            full_price[i] = float(prices_1[i])
+            prices_1[i] = prices_1[i].replace("\u202f", "").replace(",", "")
+            prices_2[i] = prices_2[i].replace("\xa0", ".").replace(",", ".")
+            full_price.append(float(prices_1[i] + prices_2[i]))
 
         for item in zip(links, series, full_price):
             scraped_info = {"link": item[0], "series": item[1], "price": item[2]}
