@@ -1,5 +1,5 @@
 """
-shop_a_spider.py
+shop_a.py
 
 This module contains the spider definition for scraping data from Shop A.
 
@@ -8,7 +8,7 @@ like product name, price, description, and other relevant details, and stores
 them for further processing or analysis.
 
 Usage:
-    scrapy crawl shop_a_spider
+    scrapy crawl shop_a
 
 Attributes:
     name (str): Unique identifier for the spider.
@@ -21,7 +21,7 @@ Methods:
 import scrapy
 
 
-class ShopaSpider(scrapy.Spider):
+class ShopASpider(scrapy.Spider):
     """
     Spider to scrape product information from Shop A's website.
 
@@ -38,10 +38,10 @@ class ShopaSpider(scrapy.Spider):
         parse(self, response): Processes the response and extracts the required data.
     """
 
-    name = "shopA_spider"
+    name = "shop_a"
     allowed_domains = ["www.pixmania.com"]
     start_urls = ["https://www.pixmania.com/fr/fr/smartphones-iphone-14-pro-max.html"]
-    custom_settings = {"FEED_URI": "../data/shopA.csv"}
+    custom_settings = {"FEED_URI": "./data/shopA.csv"}
 
     def parse(self, response):
         """
@@ -60,8 +60,8 @@ class ShopaSpider(scrapy.Spider):
         # iphone-14-pro-max-256-go-argent-129973.html
         # and extracted_series to "iPhone 14 Pro Max 256 Go, Argent"
         # and extracted_prices to "1599,00" as float
-        for i in len(links):
-            links[i] = "https://www.pixmania.com" + links[i]
+        for i, link in enumerate(links):
+            links[i] = "https://www.pixmania.com" + link
             series[i] = series[i].strip()
             prices[i] = float(prices[i].replace(",", ".").replace("€", ""))
 
