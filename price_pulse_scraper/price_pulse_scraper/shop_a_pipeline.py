@@ -1,7 +1,7 @@
 # pylint: disable=import-error
 
 """
-This module contains a function to extract series information from 
+This module contains a function to extract series information from
 a given link and applies it to a sample dataframe.
 The extracted series information is saved to a CSV file.
 
@@ -11,7 +11,9 @@ Functions:
 
 """
 import re
+
 import pandas as pd
+
 
 def extract_series(link):
     """
@@ -31,9 +33,10 @@ def extract_series(link):
         return match.group(1)
     return None
 
+
 # Sample dataframe
-df_shop_A = pd.read_csv('./data/raw/shopA.csv')
-df_shop_A['series'] = df_shop_A['link'].apply(extract_series)
+df_shop_A = pd.read_csv("./data/raw/shopA.csv")
+df_shop_A["series"] = df_shop_A["link"].apply(extract_series)
 
 # Save dataframe to a CSV file
-df_shop_A.to_csv('./data/silver/shopA_silver.csv')
+df_shop_A.to_csv("./data/silver/shopA_silver.csv")
