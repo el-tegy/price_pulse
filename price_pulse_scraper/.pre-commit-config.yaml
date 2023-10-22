@@ -1,25 +1,26 @@
+exclude: ^price_pulse_scraper/price_pulse_scraper/(items\.py|middlewares\.py|pipelines\.py|settings\.py)$
+
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v3.4.0
+  rev: v4.5.0
   hooks:
   - id: trailing-whitespace
   - id: check-ast
 
 - repo: https://github.com/psf/black
-  rev: 21.6b0
+  rev: 23.10.0
   hooks:
   - id: black
 
+
 - repo: https://github.com/pre-commit/mirrors-isort
-  rev: v5.7.0
+  rev: v5.10.1
   hooks:
   - id: isort
 
-- repo: local
-  hooks:
-  - id: pylint
-    name: pylint
-    entry: pylint
-    language: system
-    types: [python]
-    args: ['--rcfile=.pylintrc', '--errors-only']
+
+-   repo: https://github.com/pre-commit/mirrors-pylint
+    rev: 'v3.0.0a5'
+    hooks:
+    - id: pylint
+      args: ['--disable=too-few-public-methods,no-self-use,import-error']
