@@ -41,7 +41,7 @@ class ShopASpider(scrapy.Spider):
     name = "shop_a"
     allowed_domains = ["www.pixmania.com"]
     start_urls = ["https://www.pixmania.com/fr/fr/smartphones-iphone-14-pro-max.html"]
-    custom_settings = {"FEED_URI": "./data/shopA.csv"}
+    custom_settings = {"FEED_URI": "./data/raw/shopA.csv"}
 
     def parse(self, response):
         """
