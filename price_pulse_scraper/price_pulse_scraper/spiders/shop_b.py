@@ -41,7 +41,7 @@ class ShopBSpider(scrapy.Spider):
     name = "shop_b"
     allowed_domains = ["www.idealo.fr"]
     start_urls = ["https://www.idealo.fr/prix/202069623/apple-iphone-14-pro-max.html"]
-    custom_settings = {"FEED_URI": "./data/shopB.csv"}
+    custom_settings = {"FEED_URI": "./data/raw/shopB.csv"}
 
     def parse(self, response):
         """
