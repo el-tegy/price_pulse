@@ -2,9 +2,7 @@
 
 > price_pulse: Giving you the heartbeat of pricing across sites 💰🤩💰😱.
 
-PricePulse is a solution designed to scrape price data from e-commerce sites, consolidate the data, and provide a centralized view of product prices. Built with Docker, Scrapy, MySQL, and Docker Compose.
-
-Given the recent additions to the project, including `pylint`, the 'features' section of the README can be updated to reflect these improvements. Here's the updated section:
+PricePulse is a solution designed to scrape price data from e-commerce sites, consolidate the data, and provide a centralized view of product prices. Built with Docker, Scrapy, MySQL, PhpMyAdmin and Docker Compose.
 
 ## ✨ Features
 
@@ -19,44 +17,36 @@ Given the recent additions to the project, including `pylint`, the 'features' se
 
 ## 🚀 Quick Start
 
-1. **Setup Kubernetes Cluster**: Ensure you have a running Kubernetes cluster.
-
-2. **Clone the Repository**:
+1. **Clone the Repository**:
    ```bash
    git clone https://gitlab.com/el-tegy/pricepulse.git
-   cd pricepulse
+   cd price_pulse/
    ```
-3. **Install dependencies with Poetry**:
+2. **Install dependencies with Poetry**:
    ```bash
+   cd ./price_pulse_scraper/
    poetry install
    ```
 
-4. **Build and Run using Docker Compose**:
+3. **Build and Run using Docker Compose**:
    ```bash
-   docker-compose up -d
+   cd ..
+   docker-compose up
    ```
 
-5. **Accessing the Application**:
+4. **Accessing the Application**:
 Open a browser and navigate to http://localhost:8080 to access phpMyAdmin.
 
-6. **Stopping the Services**:
+5. **Stopping the Services**:
    ```bash
    docker-compose down
    ```
 
 ## 🧱 Directory Structure
 
-- `/scrapers`: Contains Scrapy spiders and scripts.
-- `/db_init`: Contains initialization scripts for the MySQL database.
+- `/price_pulse_scraper`: Contains Scrapy spiders and scripts.
+- `/price_pulse_mysql_db`: Contains initialization scripts for the MySQL database.
 - `/docker-compose.yml`: Configuration file for Docker Compose to orchestrate the services.
-
-## ✒️ Development
-
-Details about setting up the development environment, coding standards, etc.
-
-## 🔍 Testing
-
-How to run unit tests and understand test coverage.
 
 ## 🚚 Troubleshooting
 
@@ -71,6 +61,6 @@ We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for 
 
 ## ⚠️ License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
