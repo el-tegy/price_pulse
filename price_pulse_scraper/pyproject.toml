@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-scrapy = "^2.11.0"
+scrapy = "^2.11.1"
 
 
 [tool.poetry.group.dev.dependencies]
